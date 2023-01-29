@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    ds1:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      jdbcUrl: ${DS1_URL}
+      username: ${DS1_USERNAME}
+      password: ${DS1_PASSWORD}
+  session:
+    storeType: jdbc
+    jdbc:
+      initializeSchema: embedded
+      tableName: SPRING_SESSION
+  thymeleaf:
+    prefix: classpath:/static/
+servlet:
+  session:
+    timeout: 30m
+mybatis:
+  configuration:
+    mapUnderscoreToCamelCase: true
+    defaultFetchSize: 100
+    defaultStatementTimeout: 30
