@@ -48,5 +48,10 @@ tasks.named('test') {
 }
 
 bootJar.configure {
-    shouldRunAfter assembleFrontend
+    mustRunAfter assembleFrontend
+}
+
+task buildApplication {
+	group 'build'
+	dependsOn 'bootJar', 'assembleFrontend'
 }
