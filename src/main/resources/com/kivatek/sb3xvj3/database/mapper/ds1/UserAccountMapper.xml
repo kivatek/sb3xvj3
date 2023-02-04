@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kivatek.sb3xvj3.database.mapper.ds1.UserMapper">
+<mapper namespace="com.kivatek.sb3xvj3.database.mapper.ds1.UserAccountMapper">
   <update id="updateUsername" parameterType="map">
-UPDATE USER
+UPDATE USER_ACCOUNT
 SET
   USERNAME = #{username},
   updated_by = 'DEVELOPER',

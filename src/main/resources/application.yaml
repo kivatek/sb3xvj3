@@ -15,8 +15,13 @@ spring:
 servlet:
   session:
     timeout: 30m
+secure:
+  cookie: false
 mybatis:
   configuration:
     mapUnderscoreToCamelCase: true
     defaultFetchSize: 100
     defaultStatementTimeout: 30
+logging:
+  level:
+    root: INFO

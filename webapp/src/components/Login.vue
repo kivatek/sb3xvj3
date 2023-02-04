@@ -1,18 +1,19 @@
 <template>
     <div class="container">
         <div class="card card-container">
-            <form id="formLogin" class="form-signin" action="/authenticate" method="post">
+            <form id="formLogin" class="form-signin">
                 <input name="username" v-model="username" type="text" id="inputUsername" class="form-control"
                     placeholder="ユーザー名" required autofocus>
                 <input name="password" v-model="password" type="password" id="inputPassword" class="form-control"
                     placeholder="パスワード" required>
-                <button type="submit" class="btn btn-lg btn-primary btn-block btn-signin">ログイン</button>
+                <button type="button" @click="send" class="btn btn-lg btn-primary btn-block btn-signin">ログイン</button>
             </form>
         </div>
     </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import axios from 'axios'
 
 export default defineComponent({
     data() {
@@ -21,6 +22,32 @@ export default defineComponent({
             password: '',
         }
     },
+    methods: {
+        send() {
+            let body = new URLSearchParams()
+            body.append('username', this.username);
+            body.append('password', this.password);
+            axios.post(
+                '/authenticate',
+                body)
+                .then(function (response) {
+                    console.log(JSON.stringify(response));
+                    console.log(document.cookie);
+                    window.location.href = "/";
+                })
+                .catch(function (error) {
+                    console.log(JSON.stringify(error));
+                    console.log(document.cookie);
+                    // ログインが成功してもアクセス自体に対しては302で応答してくる。
+                    // 応答メッセージ内のstatusをチェックする。
+                    if (error.status == 200) {
+                        window.location.href = "/";
+                    } else {
+                        window.location.href = "/login?error";
+                    }
+                });
+        }
+    }
 });
 </script>
 <style scoped>

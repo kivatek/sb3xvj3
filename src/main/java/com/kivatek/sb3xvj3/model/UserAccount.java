@@ -7,15 +7,16 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class User {
+public class UserAccount {
     private Long id;
     private String username;
     private String password;
     private String email;
     private String roles;
-    private boolean locked;
-    private boolean expired;
-    private boolean credentialsExpired;
+    private boolean disabledFlag;
+    private boolean lockedFlag;
+    private boolean expiredFlag;
+    private boolean credentialsExpiredFlag;
     private String created_by;
     private Date created_at;
     private String updated_by;
