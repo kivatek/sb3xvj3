@@ -1,0 +1,21 @@
+* text=auto eol=lf
+*.java  text eol=lf
+*.html  text eol=lf
+*.vue   text eol=lf
+*.css   text eol=lf
+*.js    text eol=lf
+*.ts    text eol=lf
+*.json  text eol=lf
+*.sh    text eol=lf
+*.{cmd,[cC][mM][dD]} text eol=crlf
+*.{bat,[bB][aA][tT]} text eol=crlf
+*.ico   binary
+*.gif   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gz    binary
+*.zip   binary
+*.tar   binary
+*.jar   binary
+*.war   binary
